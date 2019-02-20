@@ -1,0 +1,18 @@
+
+{
+    "version": 2,
+    "name": "movies",
+    "env": {
+      "DBHOST": "maitreyidb.c2iipqd2e792.us-east-2.rds.amazonaws.com",
+      "DBPORT": "3306",
+      "DBUSER": "maitreyidb",
+      "DBPASSWORD": "maitreyidb",
+      "DBNAME": "movies"
+    },
+    "builds": [
+      { "src": "index.js", "use": "@now/node" }
+    ],
+    "routes": [
+      { "src": "/(.*)", "methods":["GET"], "dest": "/index.js" }
+    ]
+  }
