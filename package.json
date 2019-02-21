@@ -1,17 +1,25 @@
 {
-  "name": "nowmysql2",
+  "name": "koa-assignment1",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaitreyiJadhav/koa-assignment1.git"
+  },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaitreyiJadhav/koa-assignment1/issues"
+  },
+  "homepage": "https://github.com/MaitreyiJadhav/koa-assignment1#readme",
   "dependencies": {
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
+    "mysql": "^2.16.0",
     "promise-mysql": "^3.3.1"
   }
 }

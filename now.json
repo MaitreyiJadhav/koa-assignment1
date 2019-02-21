@@ -1,18 +1,18 @@
 
 {
     "version": 2,
-    "name": "movies",
+    "name": "todo",
     "env": {
       "DBHOST": "maitreyidb.c2iipqd2e792.us-east-2.rds.amazonaws.com",
       "DBPORT": "3306",
       "DBUSER": "maitreyidb",
       "DBPASSWORD": "maitreyidb",
-      "DBNAME": "movies"
+      "DBNAME": "todo"
     },
     "builds": [
-      { "src": "index.js", "use": "@now/node" }
+      { "src": "api/*/index.js", "use": "@now/node" }
     ],
     "routes": [
-      { "src": "/(.*)", "methods":["GET"], "dest": "/index.js" }
+      { "src": "/api/get", "methods":["GET"], "dest": "/api/get/index.js" }
     ]
   }
