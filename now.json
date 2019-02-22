@@ -10,9 +10,15 @@
       "DBNAME": "todo"
     },
     "builds": [
-      { "src": "api/*/index.js", "use": "@now/node" }
+      { "src": "Api/*/index.js", "use": "@now/node" }
     ],
     "routes": [
-      { "src": "/api/get", "methods":["GET"], "dest": "/api/get/index.js" }
+      { "src": "/Api/get", "methods":["GET"], "dest": "/Api/get/index.js" },
+      { "src": "/Api/update", "methods": ["PUT"], "dest": "/Api/update/index.js" },
+      { "src": "/Api/delete", "methods": ["DELETE"], "dest": "/Api/delete/index.js" },
+      { "src": "/Api/post", "methods": ["POST"], "dest": "/Api/post/index.js" }
+
+
+
     ]
   }

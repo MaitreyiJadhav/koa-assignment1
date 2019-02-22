@@ -14,9 +14,9 @@ app.use(async ctx => {
 async function show(title) {
   try {
     // const itemData = await pool.query(`SELECT * FROM blogPosts WHERE blogTitle  LIKE '%${title}%'`)
-    const itemData = await pool.query(` SELECT * FROM todoList WHERE todoItem LIKE '%${title}%'`)
+    // const itemData = await pool.query(` SELECT * FROM todoList WHERE todoItem LIKE '%${title}%'`)
     
-  // const itemData = await pool.query(` SELECT * FROM todoList`)
+  const itemData = await pool.query(`DELETE FROM todoList WHERE todoItem LIKE '%${title}%' `)
 
     
     return itemData
