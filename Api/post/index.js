@@ -1,60 +1,58 @@
 // const Koa = require('koa')
 // const bodyParser = require('koa-bodyparser')
+// const cors = require('@koa/cors');
 // const pool = require('../../db/db')
 
 // const app = new Koa()
 // app.use(bodyParser())
-
+// app.use(cors())
+// console.log('hellloooooo'); 
 // app.use(async ctx => {
-//   const dbtitle = await ctx.request.body.title
-//   const item = await show(dbtitle)
-//   ctx.body = item
+//   const data = await ctx.request.body
+//   const item = await createPost(data.todoItem, data.todoStatus, data.todoDateAdded, data.todoDueBy)
+//   ctx.body = `new post created`
 // })
 
-// async function show(title, status, todoDateAdded, todoDueBy) {
+// async function createPost(todoItem, todoStatus, todoDateAdded, todoDueBy) {
 //   try {
-   
-//   const itemData = await pool.query(` INSERT INTO todoList (todoItem, todoDateAdded, todoStatus, todoDueBy)  
-//           VALUES("Blog", "2019-02-22", true, "2019-02-27")`)
-
-    
+//     const itemData = await pool.query(`
+//       INSERT INTO todoList (todoItem, todoDateAdded,  todoStatus, todoDueBy) 
+//       VALUES ("${todoItem}", "${todoDateAdded}", "${todoStatus}", "${todoDueBy}");
+//     `)
 //     return itemData
-
 //   } catch (error) {
-//     console.log(error)
+//     console.log("error", error)
 //   }
 // }
 
 // module.exports = app.callback()
 
-
-
 const Koa = require('koa')
 const bodyParser = require('koa-bodyparser')
+const cors = require('@koa/cors');
 const pool = require('../../db/db')
+console.log('asd;11111'); 
 
 const app = new Koa()
-
 app.use(bodyParser())
+app.use(cors())
+console.log('asd;22222'); 
 
 app.use(async ctx => {
-  const updateBody = await ctx.request.body
-  await postTodo(updateBody.status, updateBody.title, updateBody.todoDateAdded, updateBody.todoDueBy)
-  ctx.body = { "todoItem": `${updateBody.title}`, "todoStatus": `${updateBody.status}`, "todoDateAdded": `${updateBody.todoDateAdded}`, "todoDueBy" :`${updateBody.todoDueBy}` }
+  const data = await ctx.request.body
+  const item = await createPost(data.todoItem, data.todoStatus, data.todoDateAdded, data.todoDueBy)
+  ctx.body = `new post created, todoList ${item.todoID}`
 })
 
-async function postTodo(status, title, todoDateAdded, todoDueBy) {
+async function createPost(todoItem, todoStatus, todoDateAdded, todoDueBy) {
   try {
-
-
-    const postedTodo = await pool.query(` INSERT INTO todoList (todoItem ='%${updateBody.title}}%', todoDateAdded='%${updateBody.todoDateAdded}%', todoStatus='%${updateBody.todoStatus}%', todoDueBy='%${updateBody.todoDueBy}%')  
-              VALUES("%${title}%", "%${todoDateAdded}%", "%${status}%", "%${todoDueBy}%")`)   
-              
-              
-    return postedTodo
-  }
-  catch(e){
-    console.error(e)
+    const itemData = await pool.query(`
+      INSERT INTO todoList (todoItem, todoStatus, todoDateAdded, todoDueBy) 
+      VALUES ("${todoItem}", "${todoStatus}", "${todoDateAdded}", "${todoDueBy}");
+    `)
+    return itemData
+  } catch (error) {
+    console.log(error)
   }
 }
 
