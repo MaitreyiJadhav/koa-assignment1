@@ -18,7 +18,7 @@ async function show(title) {
     
   // const itemData = await pool.query(` SELECT * FROM todoList`)
 
-  console.log('hello')
+  // console.log('hello')
     
     return itemData
 
