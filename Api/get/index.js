@@ -13,7 +13,6 @@ app.use(async ctx => {
 
 async function show(title) {
   try {
-    // const itemData = await pool.query(`SELECT * FROM blogPosts WHERE blogTitle  LIKE '%${title}%'`)
     const itemData = await pool.query(` SELECT * FROM todoList WHERE todoItem LIKE '%${title}%'`)
     
 
@@ -27,6 +26,4 @@ async function show(title) {
 }
 
 module.exports = app.callback()
-
-
 
