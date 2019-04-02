@@ -1,8 +1,6 @@
+
+
 {
-    "todoItem": "Buy computer",
-    "todoDateAdded": "2019-02-22",
-
-    "todoStatus": true,
-    "todoDueBy": "2019-02-26"
-
-  }
+    "todoItem":"shifting"
+   
+}
